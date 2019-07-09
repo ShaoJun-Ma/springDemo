@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <!--如果是自动装配中的byName,这里的id必须跟User中的setUserclass去掉set之后的字符串一致，否则取出来为空-->
+    <bean id="userclass" class="com.msj.demo02.UserClass">
+        <property name="cno" value="222"/>
+    </bean>
+    <!--手动装配-->
+    <!--<bean id="user" class="com.msj.demo02.User">-->
+        <!--<property name="id" value="1"/>-->
+        <!--<property name="username" value="小花"/>-->
+        <!--<property name="userclass" ref="uclass"/>-->
+    <!--</bean>-->
+
+    <!--自动装配 autowire="byType"-->
+    <bean id="user" class="com.msj.demo02.User" autowire="byName" >
+        <property name="id" value="2"/>
+        <property name="username" value="小猫"/>
+    </bean>
+
+</beans>
